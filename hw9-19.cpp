@@ -44,9 +44,8 @@ int main()
     cout << fixed << setprecision(2) << endl; 
     cout << "Credit union payment: $" << creditPayment << endl;
     cout << "Dealer payment: $" << dealerPayment << endl;
-//dislay total payments
-    cout << "Total credit union payment: $" << totalCreditPayment << endl;
-    cout << "Total dealer payment: $" << totalDealerPayment << endl;
+    cout << "\nTotal amount if financed through credit union: $" << totalCreditPayment << endl;
+    cout << "Total amount if financed through dealer: $" << totalDealerPayment << endl;
 return 0;
 } //end of main function
 
@@ -55,9 +54,9 @@ double getPayment(int prin, double monthRate, int months)
 {
     //calculates and return a monthly payment
     double monthPay = 0.0;
-    double pp = (1 - pow(monthRate + 1, -months));
-    if(pp == 0)
+    double denominator = (1 - pow(monthRate + 1, -months));
+    if(denominator == 0)
         return -1;
-    monthPay = prin * monthRate / pp;
+    monthPay = prin * monthRate / denominator;
     return monthPay;
 } //end of getPayment function
