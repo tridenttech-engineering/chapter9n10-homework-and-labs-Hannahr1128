@@ -22,8 +22,14 @@ double calculateSimplePayment(int amount, double rate, int months)
 {
     //calculates and returns a monthly payment
     double monthPay = 0.0;
-    monthPay = amount * rate / 
-        (1 - pow(rate + 1, -months));
+    double denominator = 1 - pow(rate + 1, -months);
+    
+    // Check if denominator is zero
+    if (abs(denominator) < 1e-10) {
+        return -1; // Return error value
+    }
+    
+    monthPay = amount * rate / denominator;
     return monthPay;
 } 
 int main()
