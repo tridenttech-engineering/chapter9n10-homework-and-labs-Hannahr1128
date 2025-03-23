@@ -29,7 +29,7 @@ double calculateSimplePayment(int amount, double rate, int months)
         return -1; // Return error value
     }
     
-    monthPay = amount * rate / denominator;
+    monthPay = (amount * rate * pow(1 + rate, months)) / denominator;
     return monthPay;
 } 
 int main()
