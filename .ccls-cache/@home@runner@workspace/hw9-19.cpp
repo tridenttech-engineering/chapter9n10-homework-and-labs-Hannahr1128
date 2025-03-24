@@ -54,9 +54,6 @@ double getPayment(int prin, double monthRate, int months)
 {
     //calculates and return a monthly payment
     double monthPay = 0.0;
-    double denominator = (1 - pow(monthRate + 1, -months));
-    if(denominator == 0)
-        return -1;
-    monthPay = prin * monthRate / denominator;
+    monthPay = prin * monthRate / (1 - pow(1 + monthRate, -months));
     return monthPay;
 } //end of getPayment function
