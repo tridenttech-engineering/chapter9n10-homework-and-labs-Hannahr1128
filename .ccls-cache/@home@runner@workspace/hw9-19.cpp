@@ -37,8 +37,8 @@ int main()
     //call function to calculate payments
     creditPayment = getPayment(carPrice - rebate, creditRate / 12, term * 12);
     dealerPayment = getPayment(carPrice, dealerRate / 12, term * 12);
-    totalCreditPayment = creditPayment * term * 12;
-    totalDealerPayment = dealerPayment * term * 12;
+    totalCreditPayment = creditPayment * 48;
+    totalDealerPayment = dealerPayment * 48;;
 
     //display payments
     cout << fixed << setprecision(2) << endl; 
@@ -54,6 +54,6 @@ double getPayment(int prin, double monthRate, int months)
 {
     //calculates and return a monthly payment
     double monthPay = 0.0;
-    monthPay = prin * monthRate / (1 - pow(1 + monthRate, -months));
+    monthPay = (prin * monthRate) / (1 - pow(1 + monthRate, -months));
     return monthPay;
 } //end of getPayment function
