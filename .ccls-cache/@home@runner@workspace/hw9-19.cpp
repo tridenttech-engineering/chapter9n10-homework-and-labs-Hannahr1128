@@ -33,7 +33,7 @@ int main()
     cin >> dealerRate;
     cout << "Term in years: ";
     cin >> term;
-    
+
     //call function to calculate payments
     creditPayment = getPayment(carPrice - rebate, creditRate / 12, term * 12);
     dealerPayment = getPayment(carPrice, dealerRate / 12, term * 12);
