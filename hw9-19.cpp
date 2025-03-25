@@ -8,6 +8,7 @@ using namespace std;
 
 //function prototype
 double getPayment(int, double, int);
+double getTotal(double monthPay, int months);
 
 int main()
 {
@@ -56,4 +57,9 @@ double getPayment(int prin, double monthRate, int months)
     double monthPay = 0.0;
     monthPay = (prin * monthRate * pow(1.0 + monthRate, months)) / (pow(1.0 + monthRate, months) - 1.0);
     return monthPay;
+    double total = 0.0;
+    double roundedPay = 0.0;
+    roundedPay = static_cast<int>((monthPay + 0.005) * 100.0) / 100.0;
+    total= roundedPay * months;
+    return total;
 } //end of getPayment function
